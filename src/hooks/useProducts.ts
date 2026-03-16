@@ -3,7 +3,7 @@ import { getProducts } from "../api/productService";
 
 export const useProducts = () => {
     return useQuery({
-        queryKey : ["products"],
+        queryKey : ['products'],
         queryFn : getProducts
     })
 }

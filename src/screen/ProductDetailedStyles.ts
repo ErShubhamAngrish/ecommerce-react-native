@@ -1,6 +1,11 @@
 import styled from "styled-components/native";
 
-export const Container = styled.SafeAreaView`
+
+interface BottomButtonProps {
+  safeBottom : number;
+}
+
+export const Container = styled.View`
   flex: 1;
   background-color: #ffffff;
 `;
@@ -41,7 +46,7 @@ export const Dot = styled.View<{ active: boolean }>`
 `;
 
 export const InfoContainer = styled.View`
-  padding: 0 16px;
+  padding: 0px 16px;
 `;
 
 export const Title = styled.Text`
@@ -73,10 +78,11 @@ export const Discount = styled.Text`
   font-weight: 600;
 `;
 
-export const BottomBar = styled.View`
+export const BottomBar = styled.View<BottomButtonProps>`
   position: absolute;
-  bottom: 0;
+  bottom: ${props => (props.safeBottom || 0) + 5}px;
   width: 100%;
+  padding:0px 15px;
   flex-direction: row;
   border-top-width: 1px;
   border-color: #eeeeee;
